@@ -233,10 +233,11 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 			// draw the scores
 			g.setColor(Color.BLUE);
 			g.setFont(new Font(Font.DIALOG, Font.BOLD, 36));
-			g.drawString(String.valueOf(playerOneScore), 100, 100); // Player 1
+			g.drawString("Score: "+String.valueOf(playerOneScore), 50, 100); // Player 1
 																	// score
-			g.drawString(String.valueOf(playerTwoScore), 375, 100); // Player 2
+			g.drawString("Score: "+String.valueOf(playerTwoScore), 300, 100); // Player 2
 																	// score
+			
 
 			// draw the ball
 			g.setColor(Color.RED);
