@@ -66,7 +66,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 	private int playerOneHeight = 60;
 
 	/** Player 2's paddle: position and size */
-	private int playerTwoX = 465;
+	private int playerTwoX = 472;
 	private int playerTwoY = 250;
 	private int playerTwoWidth = 10;
 	private int playerTwoHeight = 60;
@@ -264,9 +264,9 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 			// Draw the winner name
 			g.setFont(new Font(Font.DIALOG, Font.BOLD, 50));
 			if (playerOneScore > playerTwoScore) {
-				g.drawString("Player 1 Wins!", 120, 200);
+				g.drawString("Player 1 Wins!", 80, 200);
 			} else {
-				g.drawString("Player 2 Wins!", 120, 200);
+				g.drawString("Player 2 Wins!", 80, 200);
 			}
 			// Draw Final Score
 			g.setFont(new Font(Font.DIALOG, Font.BOLD, 40));
