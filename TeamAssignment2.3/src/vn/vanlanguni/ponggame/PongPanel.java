@@ -217,7 +217,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 
 			// Draw game title and start message
 
-			lblTitle.setIcon(new ImageIcon("background.gif"));
+			lblTitle.setIcon(new ImageIcon("src/hinh/background.gif"));
 
 		} else if (playing) {
 
