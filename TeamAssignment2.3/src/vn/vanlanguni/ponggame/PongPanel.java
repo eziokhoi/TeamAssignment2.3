@@ -18,15 +18,25 @@
 package vn.vanlanguni.ponggame;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  * 
@@ -67,6 +77,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 	private int playerTwoY = 250;
 	private int playerTwoWidth = 10;
 	private int playerTwoHeight = 60;
+	private Color paddlesColor = Color.YELLOW;
 
 	/** Speed of the paddle - How fast the paddle move. */
 	private int paddleSpeed = 5;
@@ -76,9 +87,9 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 	private int playerTwoScore;
 
 	/** Construct a PongPanel. */
+	
 	public PongPanel() {
 		setBackground(backgroundColor);
-
 		// listen to key presses
 		setFocusable(true);
 		addKeyListener(this);
@@ -95,9 +106,11 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 
 	/** Repeated task */
 	public void step() {
+		
 
 		if (playing) {
-
+			
+		 
 			/* Playing mode */
 
 			// move player 1
@@ -197,6 +210,11 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 		repaint();
 	}
 
+	private void setContentPane(JLabel jLabel) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/** Paint the game screen. */
 	public void paintComponent(Graphics g) {
 
@@ -213,8 +231,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 
 			g.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 			g.drawString("Press 'P' to play.", 150, 400);
-		} else if (playing) {
-
+		} else if (playing) {	      
 			/* Game is playing */
 
 			// set the coordinate limit
@@ -229,6 +246,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 			// draw "goal lines" on each side
 			g.drawLine(playerOneRight, 0, playerOneRight, getHeight());
 			g.drawLine(playerTwoLeft, 0, playerTwoLeft, getHeight());
+			
 
 			// draw the scores
 			g.setColor(Color.BLUE);
@@ -244,10 +262,12 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 			g.fillOval(ballX, ballY, diameter, diameter);
 
 			// draw the paddles
+			g.setColor(paddlesColor);
 			g.fillRect(playerOneX, playerOneY, playerOneWidth, playerOneHeight);
+			g.setColor(paddlesColor);
 			g.fillRect(playerTwoX, playerTwoY, playerTwoWidth, playerTwoHeight);
 		} else if (gameOver) {
-
+			
 			/* Show End game screen with winner name and score */
 
 			// Draw scores
@@ -263,9 +283,11 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 			} else {
 				g.drawString("Player 2 Wins!", 120, 200);
 			}
-// Draw Final Score
-g.setFont(new Font(Font.DIALOG, Font.BOLD, 40));
-g.drawString("Score:", 80, 100);
+			
+			// Draw Final Score
+			
+			g.setFont(new Font(Font.DIALOG, Font.BOLD, 40));
+			g.drawString("Score:", 80, 100);
 
 
 			// Draw Restart message
@@ -316,6 +338,9 @@ g.drawString("Score:", 80, 100);
 		} else if (e.getKeyCode() == KeyEvent.VK_S) {
 			sPressed = false;
 		}
+	}
+	public void setPaddlesColor(Color newColor1) {
+		this.paddlesColor = newColor1;
 	}
 
 }
