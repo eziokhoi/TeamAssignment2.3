@@ -30,7 +30,7 @@ public class MainGameUI extends JFrame{
 		setTitle("Pong Game - K21T Ltd.");
 		pongPanel = new PongPanel();
 		 this.setResizable(false);
-		 Sound1.bgMusic.loop();
+		 Sound1.bgMusic.play();
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
 		getContentPane().add(pongPanel, BorderLayout.CENTER);

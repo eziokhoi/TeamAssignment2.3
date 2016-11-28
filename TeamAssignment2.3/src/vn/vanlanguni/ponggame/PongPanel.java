@@ -25,6 +25,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -66,7 +68,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 	private int playerOneHeight = 60;
 
 	/** Player 2's paddle: position and size */
-	private int playerTwoX = 483;
+	private int playerTwoX = 472;
 	private int playerTwoY = 250;
 	private int playerTwoWidth = 10;
 	private int playerTwoHeight = 60;
@@ -80,6 +82,8 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 	JLabel lblTitle = new JLabel();
 	JLabel lblBackground = new JLabel();
 	ImageIcon backg = new ImageIcon("C:/as4/k21tponggame-master/k21t2/PongGameT2/src/background1.jpg");
+
+	private DataLine clip;
 
 	/** Construct a PongPanel. */
 	public PongPanel() {
@@ -194,6 +198,8 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 					// If the ball hitting the paddle, it will bounce back
 
 					ballDeltaX *= -1;
+				
+			      ;
 				}
 			}
 
@@ -287,6 +293,9 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 			if (e.getKeyChar() == 'p') {
 				showTitleScreen = false;
 				playing = true;
+				
+				
+			
 			}
 		} else if (playing) {
 			if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -321,5 +330,4 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 			sPressed = false;
 		}
 	}
-
 }
