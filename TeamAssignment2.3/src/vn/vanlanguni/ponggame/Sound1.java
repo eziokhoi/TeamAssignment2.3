@@ -5,7 +5,8 @@ import java.applet.AudioClip;
 
 public class Sound1 {
 
-    public static final Sound1 bgMusic = new Sound1("/nhac.wav");
+    public static final Sound1 bgMusic = new Sound1("/1.wav");
+    public static final Sound1 bg = new Sound1("/3.wav");
     public static final Sound1 hitpaddle = new Sound1("/Ball.wav");
 
     private AudioClip clip;
@@ -22,10 +23,10 @@ public class Sound1 {
     // plays the music, obviously
     public void play() {
         try {
-            new Thread() { //multi-tasking stuff
+            new Thread() { 
                 public void run(){
                     //clip.play();
-                    clip.loop();
+                    clip.play();
 
                 }
             }.start();
@@ -36,7 +37,21 @@ public class Sound1 {
 
     //plays the audio in a loop
     public void loop(){
-        play();
+    	try{
+    		new Thread() {
+    			public void run(){
+    				clip.loop();
+    			}
+    		}.start();
+    	} catch (Exception e){
+    		e.printStackTrace();
+    	}
+     
+    }
+  
+    
+    public void stop(){
+        clip.stop();
     }
 
 }
