@@ -5,9 +5,11 @@ import java.applet.AudioClip;
 
 public class Sound1 {
 
-    public static final Sound1 bgMusic = new Sound1("/1.wav");
-    public static final Sound1 bg = new Sound1("/3.wav");
+    public static final Sound1 bgMusic = new Sound1("/begin2.wav");
+    public static final Sound1 bg = new Sound1("/gameover.wav");
     public static final Sound1 hitpaddle = new Sound1("/Ball.wav");
+    public static final Sound1 hitlabel = new Sound1("/wohoo.wav");
+
 
     private AudioClip clip;
 
